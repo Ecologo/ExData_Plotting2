@@ -16,12 +16,15 @@ SCC <- readRDS("Source_Classification_Code.rds")
 #Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips=="24510") from 
 #1999 to 2008? Use the base plotting system to make a plot answering this question.
 
-marylandNEI <- filter(NEI, fips == "24510")
+baltimoreNEI <- filter(NEI, fips == "24510")
 
-marylandEmissionsPerYear <- aggregate(Emissions ~ year,marylandNEI,sum)
+baltimoreEmissionsPerYear <- aggregate(Emissions ~ year,baltimoreNEI,sum)
 
 png("plot2.png")
 
-with(marylandEmissionsPerYear,plot(year,Emissions/10^6, type = "l",ylab = "PM2.5 emissions (millions tons)", xlab = "Year", main = "Baltimore City, Maryland"))
+with(baltimoreEmissionsPerYear,plot(year,Emissions/10^6, type = "l",
+                                    ylab = "PM2.5 emissions (millions tons)", 
+                                    xlab = "Year", 
+                                    main = "Baltimore City, Maryland"))
 
 dev.off()
