@@ -19,6 +19,6 @@ totalEmissionsPerYear <- aggregate(Emissions ~ year,NEI,sum)
 
 png("plot1.png")
 
-with(totalEmissionsPerYear,plot(year,Emissions/10^6, type = "l",ylab = "PM2.5 emissions (millions tons)", xlab = "Year"))
+with(totalEmissionsPerYear,plot(year,Emissions/10^6, type = "l",ylab = "PM2.5 emissions (millions tons)", xlab = "Year", main = "United States"))
 
 dev.off()
